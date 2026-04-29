@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background-image: url("images/matt-gross-9aCkSl6YcXg-unsplash.jpg");
+    background-repeat: repeat;   /* Looper */
+    background-size: 600px;       /* ORIGINAL størrelse */
+    background-attachment: scroll; /* Valgfri */
+    color: #D8D8D8;
+}
+
+.container1{
+    padding-top: 350px;
+}
+.boks1{
+    display: flex;
+    gap: 50px;
+    padding: 0 10px;
+}
+
+.boks1 h1{
+    font-size: 15px;
+    font-weight: lighter;
+    color: #D8D8D8;
+    border: 1px solid #D8D8D8;
+    padding: 3px 25px;
+    border-radius: 20px; /* gør dem runde */
+    margin-bottom: 10px;
+}
+
+.portfolio{
+    font-size: 250px;
+    margin: 0;
+    color: #D8D8D8;
+    font-family: 'Oswald', sans-serif;
+    line-height: 0.9;
+}
+
+/* bottom text */
+.left{
+    position: relative;
+    color: #D8D8D8;
+}
+
+.right{
+    position: relative;
+    color: #D8D8D8;
+}
+
+.lr{
+    display: flex;
+    gap: 740px;
+    padding: 0 10px;
+    margin-top: 30px;
+}
+
+
+/* dit grid som før */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.video-grid-wrapper {
+    position: relative;
+    margin-top: 250px;
+    margin-bottom: 250px;
+}
+
+/* teksten ovenpå ALT */
+.grid-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #D8D8D8;
+    z-index: 5;
+    text-align: center;
+    pointer-events: none; /* så man stadig kan interagere med videoer */
+}
+
+.grid-text h1 {
+    font-size: 55px;
+    margin: 0;
+}
+
+.video-section {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 👈 vigtig */
+}
+
+.video-section2 video{
+    transform: scale(2.9); /* 👈 prøv 1.1–1.4 */
+}
+
+/* tekst */
+.video-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #D8D8D8;
+    z-index: 3;
+    text-align: center;
+}
+
+.video-text h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.video-text p {
+    font-size: 18px;
+}
+
+/* overlay */
+.video-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+
+.flicker {
+    display: inline-block;
+    color: #D8D8D8;
+    position: relative;
+}
+
+/* RGB glitch lag */
+.flicker.glitch::before,
+.flicker.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.flicker.glitch::before {
+    color: red;
+    transform: translate(-2px, 0);
+    opacity: 0.6;
+}
+
+.flicker.glitch::after {
+    color: cyan;
+    transform: translate(2px, 0);
+    opacity: 0.6;
+}
+
+
+.cursor-glitch {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #D8D8D8;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    animation: glitchFade 0.6s forwards;
+}
+
+@keyframes glitchFade {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(0,0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5) translate(5px,-5px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translate(-5px,5px);
+    }
+}
+
+
+/* PAGE */
+.page4 {
+    height: 100vh;
+    width: 100%;
+    padding: 40px;
+    position: relative; /* 👈 nødvendig */
+}
+
+/* TITLE */
+.title4 {
+    text-align: center;
+    font-size: 70px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 40px; /* giver afstand ned til billedet */
+}
+
+/* LAYOUT */
+.layout4 {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 60px;
+    align-items: center; /* vertikal centrering i grid */
+}
+
+/* LEFT + RIGHT */
+.col4 {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.box4 h3 {
+    border: 1px solid #D8D8D8;
+    padding: 5px 10px;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.box4 p {
+    font-size: 12px;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.center4 {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    justify-self: center; /* horisontal centrering i grid-cellen */
+    align-self: center;   /* vertikal centrering */
+    filter: grayscale(100%) blur(3px);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.center4:hover {
+    filter: grayscale(100%) blur(0px); /* 👈 bliver skarp */
+}
+
+.center4 video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 👈 vigtig */
+    transform: scale(1.5);
+}
+
+.left4 {
+    align-items: flex-start;
+}
+
+.right4 {
+    align-items: flex-end;
+    text-align: right;
+}
+/* ===== Mobil ===== */
+@media (max-width: 600px){
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container1">
+    <div class="boks1">
+        <h1 class="h11">Web Development</h1>
+        <h1>Graphic Design</h1>
+        <h1>Social Media</h1>
+        <h1>Digital Content Creation</h1>
+    </div>
+
+    <h1 class="portfolio">PORTFOLIO</h1>
+
+    <div class="lr">
+        <p class="left">Rasmus Jacobsen</p>
+        <p class="right">Selected projects 2025 - 2027</p>
+    </div>
+</div>
+
+<div class="video-grid-wrapper">
+
+    <div class="video-grid">
+        <div class="video-section">
+            <video autoplay muted loop playsinline>
+                <source src="Videos/vid1.mkv" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-section video-section2">
+            <video autoplay muted loop playsinline>
+                <source src="Videos/Video%20Project%205.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-section">
+            <video autoplay muted loop playsinline>
+                <source src="Videos/vid2.mkv" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="grid-text">
+        <h1>
+            <span class="flicker f1">RASMUS</span>
+            <span class="flicker f2">SANGER</span>
+            <span class="flicker f3">JACOBSEN</span>
+        </h1>
+        <p>RSJ</p>
+    </div>
+
+</div>
+
+
+<div class="page4">
+
+    <h1 class="title4">
+        <span class="flicker f3">ABOUT</span>
+        <span class="flicker f1">ME</span>
+    </h1>
+
+    <div class="layout4">
+
+        <!-- LEFT -->
+        <div class="col4 left4">
+
+            <div class="box4">
+                <h3>INTRO</h3>
+                <p>I am a 21 year old digital designer focused on creating digital product and content.</p>
+            </div>
+
+            <div class="box4">
+                <h3>EDUCATION</h3>
+                <p>[2025–2027] Multimediadesigner Køge Campus Zealand</p>
+                <br>
+                <p>[2026–2027] Digital Content Creation Exam Køge Campus Zealand</p>
+            </div>
+
+            <div class="box4">
+                <h3>SKILLS</h3>
+                <p>AFTER EFFECTS • PHOTOSHOP • AI • FIGMA • ILLUSTRATOR • PHP STORM</p>
+            </div>
+
+        </div>
+
+        <!-- CENTER IMAGE -->
+        <div class="center4">
+            <video class="main-video4 main-video42" muted playsinline>
+                <source src="Videos/vidam4.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="col4 right4">
+
+            <div class="box4">
+                <h3>EXPERIENCE</h3>
+                <p>[2004 - 2026] Life</p>
+            </div>
+
+            <div class="box4">
+                <h3>LANGUAGES</h3>
+                <p>Danish • Native | English • Second</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script> //video script
+const video = document.querySelector(".main-video4");
+
+video.addEventListener("mouseenter", () => {
+    video.loop = true;
+    video.play();
+});
+
+video.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0;
+});
+</script>
+
+<script> //mus trail
+document.addEventListener("mousemove", (e) => {
+    const dot = document.createElement("div");
+    dot.classList.add("cursor-glitch");
+
+    document.body.appendChild(dot);
+
+    dot.style.left = e.clientX + "px";
+    dot.style.top = e.clientY + "px";
+
+    // random glitch offset
+    const xOffset = (Math.random() - 0.5) * 20;
+    const yOffset = (Math.random() - 0.5) * 20;
+
+    dot.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+
+    // fjern efter animation
+    setTimeout(() => {
+        dot.remove();
+    }, 600);
+});
+</script>
+
+<script> //"RASMUS SANGER JACOBSEN" glitch effekt
+const words = document.querySelectorAll(".flicker");
+
+words.forEach(w => w.setAttribute("data-text", w.textContent));
+
+function flicker(el, done) {
+    let count = 0;
+    const max = Math.floor(Math.random() * 4) + 3; // 3–6 flickers
+
+    function toggle() {
+        const hidden = el.style.visibility === "hidden";
+        el.style.visibility = hidden ? "visible" : "hidden";
+
+        // random glitch mode ibland
+        if (Math.random() > 0.7) {
+            el.classList.add("glitch");
+        } else {
+            el.classList.remove("glitch");
+        }
+
+        count++;
+
+        if (count < max * 2) {
+            setTimeout(toggle, 60); // hurtig flicker
+        } else {
+            el.style.visibility = "visible";
+            el.classList.remove("glitch");
+            done();
+        }
+    }
+
+    toggle();
+}
+
+function loop() {
+    const randomIndex = Math.floor(Math.random() * words.length);
+    const chosen = words[randomIndex];
+
+    const pause = Math.random() * 900 + 200;
+
+    setTimeout(() => {
+        flicker(chosen, () => {
+            // lille chance for "stuck glitch"
+            if (Math.random() > 0.85) {
+                chosen.classList.add("glitch");
+                setTimeout(() => chosen.classList.remove("glitch"), 200);
+            }
+
+            loop();
+        });
+    }, pause);
+}
+
+loop();
+</script>
+</body>
+</html>
