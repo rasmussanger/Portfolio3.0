@@ -10,6 +10,8 @@
 </head>
 <body>
 
+
+
 <div class="container1">
     <div class="boks1">
         <h1 class="h11">Web Development</h1>
@@ -25,6 +27,8 @@
         <p class="right">Selected projects 2025 - 2027</p>
     </div>
 </div>
+
+
 
 <div class="video-grid-wrapper">
 
@@ -60,9 +64,10 @@
 </div>
 
 
+
 <div class="page4">
 
-    <h1 class="title4">
+    <h1 class="title4 glitch-size">
         <span class="flicker f3">ABOUT</span>
         <span class="flicker f1">ME</span>
     </h1>
@@ -117,6 +122,91 @@
 
 </div>
 
+
+
+<div class="projects-wall">
+    <div class="projects-track">
+
+        <div class="group">
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+            <span>PROJECTS</span>
+        </div>
+
+    </div>
+</div>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<script>  //transition til about me elementer
+    // SELECT ELEMENTER
+    const elements = document.querySelectorAll(".box4");
+
+    // ADD STAGGER DELAY (giver smooth/premium feel)
+    elements.forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.1}s`;
+    });
+
+    // INTERSECTION OBSERVER
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            } else {
+                entry.target.classList.remove("show"); // reset når den forlader view
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    // OBSERVE ALLE ELEMENTER
+    elements.forEach(el => observer.observe(el));
+</script>
+
+<script>  //bedre baggrund
+    window.addEventListener("scroll", () => {
+        document.body.style.backgroundPositionY = window.scrollY * 0.3 + "px";
+    });
+</script>
+
 <script> //video script
 const video = document.querySelector(".main-video4");
 
@@ -161,26 +251,41 @@ words.forEach(w => w.setAttribute("data-text", w.textContent));
 
 function flicker(el, done) {
     let count = 0;
-    const max = Math.floor(Math.random() * 4) + 3; // 3–6 flickers
+    const max = Math.floor(Math.random() * 4) + 3;
 
     function toggle() {
         const hidden = el.style.visibility === "hidden";
         el.style.visibility = hidden ? "visible" : "hidden";
 
-        // random glitch mode ibland
+        // RGB glitch
         if (Math.random() > 0.7) {
             el.classList.add("glitch");
         } else {
             el.classList.remove("glitch");
         }
 
+        // 🔥 ONLY scale hvis det er i ABOUT ME
+        if (el.closest(".title4")) {
+            const scale = 0.8 + Math.random() * 1.1;
+            const skew = (Math.random() - 0.5) * 50;
+
+            el.style.transform = `scale(${scale}) skewX(${skew}deg)`;
+        }
+
         count++;
 
         if (count < max * 2) {
-            setTimeout(toggle, 60); // hurtig flicker
+            setTimeout(toggle, 60);
         } else {
+            // reset
             el.style.visibility = "visible";
             el.classList.remove("glitch");
+
+            // reset transform kun hvis den blev ændret
+            if (el.closest(".title4")) {
+                el.style.transform = "scale(1) skewX(0deg)";
+            }
+
             done();
         }
     }
