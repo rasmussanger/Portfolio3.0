@@ -519,6 +519,10 @@ body{
     transform: scale(3); /* 👈 prøv 1.1–1.4 */
 }
 
+.video-section21 video{
+    transform: scale(3); /* 👈 prøv 1.1–1.4 */
+}
+
 
 /* ===== Mobil ===== */
 @media (max-width: 600px){
