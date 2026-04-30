@@ -404,6 +404,27 @@ body{
     opacity: 0.7;
     line-height: 1.6;
     margin-top: 15px;
+    margin-bottom: 75px;
+}
+
+.process-item {
+    opacity: 100;
+    transform: translateY(15px);
+    transition:
+            opacity 0.5s ease,
+            transform 0.5s ease,
+            filter 0.5s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* 🔥 HOVER EFFECT */
+.process-item:hover {
+    transform: translateY(-5px) scale(1.03);
+    background: rgba(255, 255, 255, 0.03); /* subtle highlight */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 
@@ -446,8 +467,8 @@ body{
     /* gør effekten synlig */
     position: relative;
     padding: 20px 0;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: 200px;
+    margin-bottom: 100px;
 }
 
 /* dette er “inversion layer” */
