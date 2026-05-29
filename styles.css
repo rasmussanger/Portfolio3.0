@@ -544,6 +544,10 @@ body{
     transform-origin: 50% 80%; /* 👈 nøglen */
 }
 
+.video-section211 video{
+    transform: scale(1);
+}
+
 
 
 .clean-videos::after {
@@ -592,6 +596,165 @@ body{
 }
 
 
-/* ===== Mobil ===== */
-@media (max-width: 600px){
+
+@media (max-width: 768px) {
+
+    body {
+        background-size: 400px;
+    }
+
+    /* HEADER */
+    .container1 {
+        padding-top: 120px;
+        text-align: center;
+    }
+
+    .boks1 {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .portfolio {
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .lr {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    /* VIDEO GRID → altid 1 kolonne */
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid-wrapper {
+        margin: 80px 20px;
+    }
+
+    .video-section,
+    .video-section1 {
+        height: 220px;
+    }
+
+    /* OVERLAY TEXT */
+    .grid-text h1 {
+        font-size: 24px;
+    }
+
+    /* ABOUT SECTION */
+    .layout4 {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .center4 {
+        width: 240px;
+        height: 240px;
+    }
+
+    .right4 {
+        text-align: center;
+        align-items: center;
+    }
+
+    /* PROCESS */
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .process-section {
+        padding: 30px 20px;
+    }
+
+    .process-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .process-title-consta,
+    .process-title-refl {
+        font-size: 26px;
+    }
+
+    /* SCROLLING PROJECT TEXT */
+    .projects-wall span,
+    .projects-wall2 span {
+        font-size: 3rem;
+    }
+
+    /* FOOTER */
+    .sidstekasse {
+        margin-top: 80px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    /* CURSOR EFFECT OFF */
+    .cursor-glitch {
+        display: none;
+    }
+
+    .projects-wall,
+    .projects-wall2 {
+        position: relative;
+        z-index: 1;
+        margin: 150px 0;
+        padding: 40px 0;
+    }
+
+    .container1 {
+        padding-top: 40px; /* 👈 fjerner det store tomme space */
+    }
+
+    body {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    /* GLOBAL spacing reset */
+    .video-grid-wrapper,
+    .process-section,
+    .projects-wall,
+    .projects-wall2 {
+        margin-top: 40px !important;
+        margin-bottom: 40px !important;
+    }
+
+    /* titles tættere på content */
+    .process-title,
+    .process-title-consta,
+    .process-title-refl {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* reduce huge gaps in process cards */
+    .process-item p {
+        margin-bottom: 20px;
+    }
+
+    /* ABOUT section tighter */
+    .page4 {
+        padding: 20px;
+    }
+
+    .box4 {
+        gap: 10px;
+    }
+
+    /* video sections less vertical breathing */
+    .video-section,
+    .video-section1 {
+        margin-top: 10px;
+    }
 }
