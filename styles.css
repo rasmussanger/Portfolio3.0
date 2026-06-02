@@ -757,4 +757,12 @@ body{
     .video-section1 {
         margin-top: 10px;
     }
+
+    .center4 {
+        width: 240px;
+        height: 240px;
+
+        filter: grayscale(100%);
+    }
+
 }

@@ -406,15 +406,28 @@
 <script> //video script
 const video = document.querySelector(".main-video4");
 
-video.addEventListener("mouseenter", () => {
-    video.loop = true;
-    video.play();
-});
+if (window.innerWidth <= 768) {
 
-video.addEventListener("mouseleave", () => {
-    video.pause();
-    video.currentTime = 0;
-});
+    // Mobil
+    video.loop = true;
+    video.autoplay = true;
+
+    video.play().catch(() => {});
+
+} else {
+
+    // Desktop
+    video.addEventListener("mouseenter", () => {
+        video.loop = true;
+        video.play();
+    });
+
+    video.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+    });
+
+}
 </script>
 
 <script> //mus trail
